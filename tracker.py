@@ -26,6 +26,26 @@ def price(coin):
         "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms=USD".format(",".join(coins))).json()["RAW"]
     return crypto_data[coin.upper()]["USD"]["PRICE"]
 
+
+def low(coin):
+    coins = [coin]
+    crypto_data = requests.get(
+        "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms=USD".format(",".join(coins))).json()["RAW"]
+    return crypto_data[coin.upper()]["USD"]["LOWDAY"]
+
+def high(coin):
+    coins = [coin]
+    crypto_data = requests.get(
+        "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms=USD".format(",".join(coins))).json()["RAW"]
+    return crypto_data[coin.upper()]["USD"]["HIGHDAY"]
+
+def mktcap(coin):
+    coins = [coin]
+    crypto_data = requests.get(
+        "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms=USD".format(",".join(coins))).json()["RAW"]
+    return crypto_data[coin.upper()]["USD"]["MKTCAP"]
+
+
 if __name__ == "__main__":
         print(get_prices())
 

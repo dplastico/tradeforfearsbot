@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import telegram
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
@@ -53,10 +54,36 @@ def price(update, context):
 dispatcher.add_handler(CommandHandler("price", price))
 updater.start_polling()
 
+def low(update, context):
+    chat_id = update.effective_chat.id
+    #if len(context.args) > 1:
+    message = tracker.low(str(context.args[0]))
+    context.bot.send_message(chat_id=chat_id, text=message)
+
+dispatcher.add_handler(CommandHandler("low", low))
+updater.start_polling()
+
+def high(update, context):
+    chat_id = update.effective_chat.id
+    #if len(context.args) > 1:
+    message = tracker.high(coin)(str(context.args[0]))
+    context.bot.send_message(chat_id=chat_id, text=message)
+
+dispatcher.add_handler(CommandHandler("high", high))
+updater.start_polling()
+
+def mktcap(update, context):
+    chat_id = update.effective_chat.id
+    #if len(context.args) > 1:
+    message = tracker.mktcap(coin)(str(context.args[0]))
+    context.bot.send_message(chat_id=chat_id, text=message)
+
+dispatcher.add_handler(CommandHandler("mktcap", mktcap))
+updater.start_polling()
 
 def commands(update, context):
     chat_id = update.effective_chat.id
-    message = "Commands:\n/prices\n/hello\n/price <COIN>\n/karoldance\n"
+    message = "Commands:\n/prices\n/hello\n/price <COIN>\n/high <COIN>\n/low <COIN>\n/mktcap <COIN>\n/karoldance\n"
     context.bot.send_message(chat_id=chat_id, text=message)
 
 dispatcher.add_handler(CommandHandler("help", commands))
