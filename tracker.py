@@ -5,7 +5,7 @@ def hello():
     return "Hello World!!!"
 
 def prices():
-    coins = ["BTC", "ETH", "XRP", "LTC", "BCH", "ADA", "DOT", "LINK", "BNB", "XLM"]
+    coins = ["BTC", "ETH", "XRP", "LTC", "XDC","ICP", "DOT", "UNI",  "BNB", "XLM"]
 
     crypto_data = requests.get(
         "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms=USD".format(",".join(coins))).json()["RAW"]

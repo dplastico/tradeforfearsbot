@@ -5,7 +5,7 @@ from telegram.ext import CommandHandler
 import tracker
 import random
 
-telegram_bot_token = ""
+telegram_bot_token = "1988076376:AAG0SHgH8yhHsh_GJV3bohm77xpyw1yYFOA"
 
 updater = Updater(token=telegram_bot_token, use_context=True)
 dispatcher = updater.dispatcher
@@ -66,7 +66,7 @@ updater.start_polling()
 def high(update, context):
     chat_id = update.effective_chat.id
     #if len(context.args) > 1:
-    message = tracker.high(coin)(str(context.args[0]))
+    message = tracker.high(str(context.args[0]))
     context.bot.send_message(chat_id=chat_id, text=message)
 
 dispatcher.add_handler(CommandHandler("high", high))
@@ -75,7 +75,7 @@ updater.start_polling()
 def mktcap(update, context):
     chat_id = update.effective_chat.id
     #if len(context.args) > 1:
-    message = tracker.mktcap(coin)(str(context.args[0]))
+    message = tracker.mktcap(str(context.args[0]))
     context.bot.send_message(chat_id=chat_id, text=message)
 
 dispatcher.add_handler(CommandHandler("mktcap", mktcap))
