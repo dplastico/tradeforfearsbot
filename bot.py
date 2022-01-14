@@ -5,7 +5,7 @@ from telegram.ext import CommandHandler
 import tracker
 import random
 
-telegram_bot_token = "1988076376:AAG0SHgH8yhHsh_GJV3bohm77xpyw1yYFOA"
+telegram_bot_token = ""
 
 updater = Updater(token=telegram_bot_token, use_context=True)
 dispatcher = updater.dispatcher
@@ -80,6 +80,7 @@ def mktcap(update, context):
 
 dispatcher.add_handler(CommandHandler("mktcap", mktcap))
 updater.start_polling()
+
 
 def commands(update, context):
     chat_id = update.effective_chat.id
